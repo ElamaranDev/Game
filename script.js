@@ -17,18 +17,18 @@ document.getElementById("ties").innerHTML = scores.ties;
 
 rBtn.addEventListener('click', function(){
    computerMove = getComMove();
-   changeImg("Rock");
-   playGame("Rock");
+   changeImg("rock");
+   playGame("rock");
 });
 pBtn.addEventListener('click', function(){ 
    computerMove = getComMove();
-   changeImg("Paper");
-   playGame("Paper");
+   changeImg("paper");
+   playGame("paper");
 });
 sBtn.addEventListener('click', function(){
    computerMove = getComMove();
-   changeImg("Scissors");
-   playGame("Scissors");
+   changeImg("scissors");
+   playGame("scissors");
 });
 resetbtn.addEventListener('click', function(){
     scores.myPoint = 0;
@@ -44,50 +44,50 @@ function getComMove(){
     const randomNumber = Math.random();
     let comResult = null;
     if(randomNumber >= 0 && randomNumber < 1 / 3){
-        comResult = "Rock";
+        comResult = "rock";
     }
     else if(randomNumber >= 1/3 && randomNumber < 2 / 3){
-        comResult = "Paper";
+        comResult = "paper";
     }
     else if(randomNumber >= 2 / 3 && randomNumber < 1){
-        comResult = "Scissors";
+        comResult = "scissors";
     }
     return comResult;
 }
 function playGame(playerMove){
-    if(playerMove === "Rock")
+    if(playerMove === "rock")
     {
-        if(computerMove === "Rock"){
+        if(computerMove === "rock"){
             result = "Tie"
         }
-        else if(computerMove === "Paper"){
+        else if(computerMove === "paper"){
             result = "You Lose!"
         }
-        else if(computerMove === "Scissors"){
+        else if(computerMove === "scissors"){
             result = "You won!"
         }
     }
-    if(playerMove === "Paper")
+    if(playerMove === "paper")
     {
-        if(computerMove === "Rock"){
+        if(computerMove === "rock"){
             result = "You won!"
         }
-        else if(computerMove === "Paper"){
+        else if(computerMove === "paper"){
             result = "Tie!"
         }
-        else if(computerMove === "Scissors"){
+        else if(computerMove === "scissors"){
             result = "You Lose!"
         }
     }
-    if(playerMove === "Scissors")
+    if(playerMove === "scissors")
     {
-        if(computerMove === "Rock"){
+        if(computerMove === "rock"){
             result = "You Lose!"
         }
-        else if(computerMove === "Paper"){
+        else if(computerMove === "paper"){
             result = "You won!"
         }
-        else if(computerMove === "Scissors"){
+        else if(computerMove === "scissors"){
             result = "Tie!"
         }
     }
