@@ -70,7 +70,8 @@ html {
     align-items: center;
     flex-direction: column;
     height: 300px;
-    width: 450px;
+    width: 350px;
+    margin-right: ;
     margin-bottom: 20px;
     border-radius: 20px;
     color: white;
@@ -99,14 +100,15 @@ html {
     margin: 10px;
 }
 .your-move{
-    left: 20px;
+    left: 60px;
 }
 .computer-move{
-    right: 20px;
+    right: 60px;
 }
 #my-move-img, #com-move-img{
     height: 80px;
     margin: 5px;
+    margin-bottom: 20px;
 }
 .reset button{
     font-family: Roboto;
@@ -114,4 +116,8 @@ html {
     padding: 10px 15px;
     font-weight: 600;
     font-size: 20px;
+}
+.your-move, .computer-move {
+    display: flex;
+    flex-direction: column;
 }

@@ -114,10 +114,12 @@ function changeImg(yourInput){
             <span id="result-text"></span>
             <div class="move">
                 <div class="your-move">
-                    Your Move:<img id="my-move-img" src="images/${yourInput}-emoji.png">
+                    <img id="my-move-img" src="images/${yourInput}-emoji.png">
+                    You
                 </div>
                 <div class="computer-move">
-                <img id="com-move-img" src="images/${computerMove}-emoji.png">:Computer Move
+                <img id="com-move-img" src="images/${computerMove}-emoji.png">
+                Computer
                 </div>
             </div>
         </div>`;
