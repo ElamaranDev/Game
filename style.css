@@ -1,6 +1,5 @@
 body {
-    background-color: rgb(218, 239, 78);
-    /*rgb(53, 255, 53)*/
+    background: linear-gradient(to right, rgb(231, 245, 138), rgb(217, 240, 71));
 }
 html {
     font-family: Roboto;
@@ -110,12 +109,16 @@ html {
     margin: 5px;
     margin-bottom: 20px;
 }
-.reset button{
+.reset button {
     font-family: Roboto;
     margin-top: 60px;
-    padding: 10px 15px;
+    padding: 10px 25px;
     font-weight: 600;
     font-size: 20px;
+    border-width: 2px;
+    border-radius: 10px;
+    border-style: sold;
+    color: black;
 }
 .your-move, .computer-move {
     display: flex;
