@@ -110,6 +110,8 @@ function playGame(playerMove){
 }
 function changeImg(yourInput){
    const display = document.querySelector('.display-area');
+   const my = yourInput.toLocaleLowerCase;
+   const com = computerMove.toLocaleLowerCase;
    display.innerHTML = ` <div class="display">
             <span id="result-text"></span>
             <div class="move">
