@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="rps.png" type="image/x-icon">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -14,18 +14,22 @@
 <body>
     <div class="container">
         <h1>Rock paper Scissors</h1>
+        <div id="display-area" class="display-area">
+           
+        </div>
         <div class="but">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+            <img id="rock" src="images/rock-emoji.png" alt="Rock-button">
+            <img id="paper" src="images/paper-emoji.png" alt="Paper-button">
+            <img id="scissors" src="images/scissors-emoji.png" alt="Scissors-button">
         </div>
         <div class="result-area">
             <div class="points">
-                <label for="myPoint">You:</label><span id="myPoint">0</span>
-                <label for="computerPoint">Computer:</label><span id="computerPoint">0</span>
+                <label for="myPoint">Win:</label><span id="myPoint">0</span>
+                <label for="computerPoint">Losses:</label><span id="computerPoint">0</span>
+                <label for="myPoint">Ties:</label><span id="ties">0</span>
             </div>
-            <div class="result">
-                <span id="result"></span>
+            <div class="reset">
+                <button id="reset">Reset</button>
             </div>
         </div>
     </div>

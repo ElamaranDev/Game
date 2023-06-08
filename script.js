@@ -1,24 +1,43 @@
 const rBtn = document.getElementById('rock');
 const pBtn = document.getElementById('paper');
 const sBtn = document.getElementById('scissors');
+const resetbtn = document.getElementById('reset');
+
+let computerMove = '';
 let result = '';
-let  myPoint = 0;
-let computerPoint =0;
+
+const scores = JSON.parse(localStorage.getItem('scores')) || {
+    myPoint:0,
+    computerPoint:0,
+    ties:0
+};
+document.getElementById("myPoint").innerHTML = scores.myPoint;
+document.getElementById("computerPoint").innerHTML = scores.computerPoint;
+document.getElementById("ties").innerHTML = scores.ties;
 
 rBtn.addEventListener('click', function(){
-   const result = playGame("Rock");
-   document.getElementById('result').innerHTML = result;
-   calculatePoints();
+   computerMove = getComMove();
+   changeImg("Rock");
+   playGame("Rock");
 });
-pBtn.addEventListener('click', function(){
-   const result = playGame("Paper");
-   document.getElementById('result').innerHTML = result;
-   calculatePoints();
+pBtn.addEventListener('click', function(){ 
+   computerMove = getComMove();
+   changeImg("Paper");
+   playGame("Paper");
 });
 sBtn.addEventListener('click', function(){
-   const result = playGame("Scissors");
-   document.getElementById('result').innerHTML = result;
-   calculatePoints();
+   computerMove = getComMove();
+   changeImg("Scissors");
+   playGame("Scissors");
+});
+resetbtn.addEventListener('click', function(){
+    scores.myPoint = 0;
+    scores.computerPoint = 0;
+    scores.ties = 0;
+    document.getElementById("myPoint").innerHTML = scores.myPoint;
+    document.getElementById("computerPoint").innerHTML = scores.computerPoint;
+    document.getElementById("ties").innerHTML = scores.ties;
+    localStorage.removeItem('scores');
 });
 
 function getComMove(){
@@ -36,52 +55,70 @@ function getComMove(){
     return comResult;
 }
 function playGame(playerMove){
-    const comResult = getComMove();
     if(playerMove === "Rock")
     {
-        if(comResult === "Rock"){
+        if(computerMove === "Rock"){
             result = "Tie"
         }
-        else if(comResult === "Paper"){
+        else if(computerMove === "Paper"){
             result = "You Lose!"
         }
-        else if(comResult === "Scissors"){
+        else if(computerMove === "Scissors"){
             result = "You won!"
         }
     }
     if(playerMove === "Paper")
     {
-        if(comResult === "Rock"){
+        if(computerMove === "Rock"){
             result = "You won!"
         }
-        else if(comResult === "Paper"){
+        else if(computerMove === "Paper"){
             result = "Tie!"
         }
-        else if(comResult === "Scissors"){
+        else if(computerMove === "Scissors"){
             result = "You Lose!"
         }
     }
     if(playerMove === "Scissors")
     {
-        if(comResult === "Rock"){
+        if(computerMove === "Rock"){
             result = "You Lose!"
         }
-        else if(comResult === "Paper"){
+        else if(computerMove === "Paper"){
             result = "You won!"
         }
-        else if(comResult === "Scissors"){
+        else if(computerMove === "Scissors"){
             result = "Tie!"
         }
-    }   
-    return `You picked ${playerMove} and Computer picked ${comResult}. ${result}`;
-}
-function calculatePoints(){
+    }
+
     if(result === "You won!"){
-        myPoint++;
+        scores.myPoint++;
     }
     else if(result === "You Lose!"){
-        computerPoint++;
+        scores.computerPoint++;
     }
-    document.getElementById("myPoint").innerHTML = myPoint;
-    document.getElementById("computerPoint").innerHTML = computerPoint;
+    else{
+        scores.ties++;
+    }
+    document.getElementById("myPoint").innerHTML = scores.myPoint;
+    document.getElementById("computerPoint").innerHTML = scores.computerPoint;
+    document.getElementById("ties").innerHTML = scores.ties;
+    document.getElementById("result-text").innerHTML = result;
+    const json_string = JSON.stringify(scores);
+    localStorage.setItem('scores', json_string);
+}
+function changeImg(yourInput){
+   const display = document.querySelector('.display-area');
+   display.innerHTML = ` <div class="display">
+            <span id="result-text"></span>
+            <div class="move">
+                <div class="your-move">
+                    Your Move:<img id="my-move-img" src="images/${yourInput}-emoji.png">
+                </div>
+                <div class="computer-move">
+                <img id="com-move-img" src="images/${computerMove}-emoji.png">:Computer Move
+                </div>
+            </div>
+        </div>`;
 }

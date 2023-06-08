@@ -1,6 +1,9 @@
 
-* {
-    font-family: 'Roboto';
+body {
+    background-color: rgb(53, 255, 53);
+}
+html {
+    font-family: Roboto;
 }
 .result-area {
     display: flex;
@@ -13,43 +16,102 @@
     margin-bottom: 40px;
 }
 .result{
-    display: flex;
-    flex-wrap: wrap;
     margin-top: 40px;
-    margin-left: 15px;
-    margin-right: 1px;
 }
 .container{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-   
 }
 .but{
     display: flex;
-    flex-wrap: wrap;
-    margin: 5px;
+    margin: 10px;
 }
 #rock, #paper, #scissors {
     font-size: 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     margin:5px;
     padding: 10px 15px;
-    font-weight: 500;
+    font-weight: bold;
+    height:70px;
+    background-color: rgb(31, 31, 31);
+    cursor: pointer;
+}
+#paper {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+#rock:hover, #paper:hover, #scissors:hover {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+}
+#rock:active, #paper:active, #scissors:active {
+    opacity: 0.8;
 }
 .points{
     display: flex;
-    flex-wrap: wrap;
     width: 250px;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
 }
-#myPoint{
+#myPoint, #computerPoint{
     margin-right: 30px;
 }
-body{
-    background-color: rgb(218, 239, 78);}
+.display{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background-color: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 5px 2px rgb(255, 255, 255);
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    width: 450px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    color: white;
+}
+.display span{
+    position: absolute;
+    top: 20px;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.move{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 16px;
+}
+.your-move, .computer-move{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin: 10px;
+}
+.your-move{
+    left: 20px;
+}
+.computer-move{
+    right: 20px;
+}
+#my-move-img, #com-move-img{
+    height: 80px;
+    margin: 5px;
+}
+.reset button{
+    font-family: Roboto;
+    margin-top: 60px;
+    padding: 10px 15px;
+    font-weight: 600;
+    font-size: 20px;
+}
